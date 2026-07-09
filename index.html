@@ -1,27 +1,23 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ViDI - Nagel & Loi</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900&family=Inter:wght@300;400;500;600&display=swap');
         
         :root {
-            --bg-color: #080C16;
-            --surface-color: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --accent-primary: #00E88F;
-            --accent-secondary: #0088FF;
+            --bg-color: #05070A;
+            --surface-color: #0D1117;
+            --border-color: rgba(197,160,89, 0.15);
+            --accent-primary: #C5A059;
+            --accent-light: #E2C882;
             --text-primary: #FFFFFF;
-            --text-secondary: #9BA1B0;
+            --text-secondary: rgba(255, 255, 255, 0.7);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -34,18 +30,9 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
+            background-image: linear-gradient(rgba(197,160,89,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(197,160,89,.02) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
-
-        /* Ambient glowing orbs */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
-            z-index: 0;
-        }
-        .orb-1 { width: 500px; height: 500px; background: var(--accent-primary); top: -100px; left: -100px; }
-        .orb-2 { width: 400px; height: 400px; background: var(--accent-secondary); bottom: -100px; right: -100px; }
 
         .container {
             position: relative;
@@ -55,23 +42,15 @@
             text-align: center;
         }
 
-        .logo {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
-            font-size: 3rem;
-            letter-spacing: -1px;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeInDown 0.8s ease-out;
-        }
+        .logo { max-height: 70px; margin-bottom: 2rem; animation: fadeInDown 0.8s ease-out; }
 
         .subtitle {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.2rem;
-            color: var(--text-secondary);
+            color: var(--accent-primary);
             margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             animation: fadeInDown 0.8s ease-out 0.2s both;
         }
 
@@ -84,84 +63,49 @@
         .card {
             background: var(--surface-color);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
+            border-radius: 12px;
             padding: 3rem 2rem;
             text-decoration: none;
             color: var(--text-primary);
-            backdrop-filter: blur(10px);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: fadeInUp 0.8s ease-out 0.4s both;
             position: relative;
             overflow: hidden;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, transparent, rgba(255,255,255,0.05));
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
         .card:hover {
             transform: translateY(-10px);
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .card:hover::before {
-            opacity: 1;
+            border-color: rgba(197,160,89, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
         .card h2 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: var(--accent-primary);
+            color: var(--accent-light);
         }
 
-        .card:nth-child(2) h2 {
-            color: var(--accent-secondary);
-        }
+        .card p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.5; }
 
-        .card p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    
     <div class="container">
-        <h1 class="logo">ViDI Consultoria</h1>
+        <img src="vidi_logo.png" alt="ViDI Logo" class="logo">
         <p class="subtitle">Portal de Estratégia Corporativa — Nagel & Loi</p>
         
         <div class="cards">
             <a href="proposta.html" class="card">
-                <h2>Proposta Comercial</h2>
-                <p>Plano de diagnóstico, mapeamento e reestruturação de Go-To-Market.</p>
+                <h2>Proposta Operacional</h2>
+                <p>Plano de diagnóstico, mapeamento jurídico e reestruturação de Go-To-Market.</p>
             </a>
             
             <a href="apresentacao.html" class="card">
-                <h2>Apresentação Executiva</h2>
-                <p>Demonstração tangível de resultados e métricas (Exemplo Clínico).</p>
+                <h2>Estudo de Caso</h2>
+                <p>O playbook prático da ViDI (10 passos de tração) detalhado de forma didática.</p>
             </a>
         </div>
     </div>

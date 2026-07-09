@@ -3,106 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case de Execução - ViDI</title>
+    <title>Estudo de Caso - ViDI</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900&family=Inter:wght@300;400;500;600&display=swap');
+        
         :root {
-            --bg-color: #080C16;
-            --surface-color: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --accent-primary: #0088FF;
+            --bg-color: #05070A;
+            --surface-color: #0D1117;
+            --surface-alt: #111820;
+            --border-color: rgba(197,160,89, 0.15);
+            --accent-primary: #C5A059;
+            --accent-light: #E2C882;
             --text-primary: #FFFFFF;
-            --text-secondary: #9BA1B0;
+            --text-secondary: rgba(255, 255, 255, 0.7);
         }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; margin: 0; padding: 0; }
-        header { height: 90vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; background: radial-gradient(circle at 80% 20%, rgba(0, 136, 255, 0.15) 0%, transparent 40%); }
-        .badge { display: inline-block; padding: 0.5rem 1rem; background: rgba(0, 136, 255, 0.1); color: var(--accent-primary); border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; border: 1px solid rgba(0, 136, 255, 0.2); width: fit-content; }
-        h1 { font-family: 'Outfit', sans-serif; font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -2px; }
-        .subtitle { font-size: 1.3rem; color: var(--text-secondary); max-width: 600px; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
-        .step-list { display: flex; flex-direction: column; gap: 2rem; margin: 4rem 0; }
-        .step-item { display: flex; gap: 2rem; align-items: flex-start; background: var(--surface-color); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color); }
-        .step-num { font-family: 'Outfit', sans-serif; font-size: 3rem; font-weight: 800; color: var(--accent-primary); line-height: 1; min-width: 60px; }
-        .step-content h3 { font-family: 'Outfit', sans-serif; font-size: 1.4rem; margin: 0 0 0.5rem 0; color: #fff; }
-        .step-content p { margin: 0; color: var(--text-secondary); }
-        .nav-back { position: fixed; top: 2rem; left: 2rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; z-index: 100; }
-        .nav-back:hover { color: var(--text-primary); }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-primary); 
+            line-height: 1.7; 
+            margin: 0; 
+            padding: 0; 
+            background-image: linear-gradient(rgba(197,160,89,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(197,160,89,.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+        header { 
+            padding: 5rem 10% 4rem; 
+            background: linear-gradient(to bottom, rgba(197,160,89, 0.08) 0%, transparent 100%); 
+            border-bottom: 1px solid var(--border-color); 
+            text-align: center;
+        }
+
+        .logo { max-height: 50px; margin-bottom: 2rem; }
+
+        .badge { 
+            display: inline-block; 
+            padding: 0.5rem 1.2rem; 
+            background: rgba(197,160,89, 0.1); 
+            color: var(--accent-light); 
+            border-radius: 50px; 
+            font-size: 0.85rem; 
+            font-family: 'Inter', sans-serif;
+            font-weight: 600; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            margin-bottom: 1.5rem; 
+            border: 1px solid rgba(197,160,89, 0.3); 
+        }
+
+        h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; color: var(--accent-light); }
+        .subtitle { font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+
+        /* Didactic Sections */
+        .chapter { margin-bottom: 5rem; }
+        .chapter-header { 
+            border-left: 4px solid var(--accent-primary); 
+            padding-left: 1.5rem; 
+            margin-bottom: 2.5rem; 
+        }
+        .chapter-header h2 { font-size: 2.5rem; margin: 0; color: #fff; }
+        .chapter-header span { font-family: 'Inter', sans-serif; color: var(--accent-primary); font-weight: 600; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; }
+
+        .text-block { color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 2rem; }
+        .text-block strong { color: var(--accent-light); font-weight: 500; }
+
+        .step-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .step-item { 
+            display: flex; 
+            gap: 2rem; 
+            background: var(--surface-color); 
+            padding: 2rem; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-color); 
+            transition: transform 0.3s ease;
+        }
+        .step-item:hover { transform: translateY(-3px); border-color: rgba(197,160,89, 0.4); }
+        
+        .step-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-style: italic; color: var(--accent-primary); line-height: 1; }
+        .step-content h3 { font-size: 1.5rem; margin: 0 0 0.8rem 0; color: var(--accent-light); }
+        .step-content p { margin: 0; color: var(--text-secondary); font-size: 1.05rem; }
+
+        .result-box { 
+            background: var(--surface-alt); 
+            border: 1px solid var(--accent-primary); 
+            padding: 3rem; 
+            border-radius: 16px; 
+            text-align: center; 
+            margin-top: 2rem;
+        }
+        .result-box h3 { font-size: 2rem; margin-bottom: 1.5rem; color: #fff; }
+        .result-box p { color: var(--accent-light); font-size: 1.2rem; max-width: 600px; margin: 0 auto; }
+
+        .nav-back { position: fixed; top: 2rem; left: 2rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.3s; z-index: 100; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-back:hover { color: var(--accent-primary); }
     </style>
 </head>
 <body>
     <a href="index.html" class="nav-back">← Voltar ao Portal</a>
+    
     <header>
-        <div class="badge">Case ViDI (O Poder da Execução)</div>
-        <h1>Escala, Governança e<br>Receita Recorrente</h1>
-        <p class="subtitle">Um recorte tangível de como a nossa consultoria estruturou do absoluto zero as fundações de expansão, blindagem jurídica e modelagem B2B para uma operação real.</p>
+        <img src="vidi_logo.png" alt="ViDI Logo" class="logo">
+        <br>
+        <div class="badge">Estudo de Caso Didático</div>
+        <h1>Construindo Máquinas<br>de Escala e Tração</h1>
+        <p class="subtitle">Entenda passo a passo a metodologia ViDI aplicada em um case real de expansão corporativa e estruturação de caixa previsível.</p>
     </header>
 
     <div class="container">
-        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 1rem;">As 10 Ações de Tração</h2>
-        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 4rem;">Não entregamos apenas "dicas". Assumimos a operação tática com implantações definitivas:</p>
-        
-        <div class="step-list">
-            <div class="step-item">
-                <div class="step-num">01</div>
-                <div class="step-content">
-                    <h3>Blindagem de Propriedade Intelectual</h3>
-                    <p>Mapeamento e protocolo das marcas no INPI, garantindo que o investimento em marketing nunca seja perdido para plagiadores ou terceiros.</p>
-                </div>
+        <!-- Parte 1: O Desafio -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <span>Parte I</span>
+                <h2>O Diagnóstico do Cenário</h2>
             </div>
-            <div class="step-item">
-                <div class="step-num">02</div>
-                <div class="step-content">
-                    <h3>Branding Sensorial e Domínio Digital</h3>
-                    <p>Reserva massiva de domínios web, *handles* sociais e construção de um *Sound Branding* proprietário para a recepção (Fixação Cognitiva).</p>
-                </div>
+            <p class="text-block">Quando a ViDI assume um projeto de expansão, o primeiro passo é mapear a maturidade da operação. Neste case, o cliente (uma grande rede de serviços de ticket alto) sofria de um mal comum: <strong>processos engessados, dependência exclusiva da indicação orgânica e um custo fixo que estrangulava a margem de lucro.</strong></p>
+            <p class="text-block">Não bastava fazer "mais marketing". O problema era estrutural. A solução exigia repensar o modelo de negócio, transformando vendas únicas em receitas recorrentes.</p>
+        </div>
+
+        <!-- Parte 2: O Passo a Passo -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <span>Parte II</span>
+                <h2>A Engenharia da Execução (10 Passos)</h2>
             </div>
-            <div class="step-item">
-                <div class="step-num">03</div>
-                <div class="step-content">
-                    <h3>Comerciais de Alto Impacto com IA</h3>
-                    <p>Produção de *spots* publicitários de altíssima qualidade visual gerados por Inteligência Artificial, reduzindo o custo com agências de produção em 80%.</p>
+            <p class="text-block">Para tirar a escala do papel, não entregamos planilhas teóricas. Assumimos a implantação tática. Veja didaticamente como construímos essa máquina:</p>
+            
+            <div class="step-list">
+                <div class="step-item">
+                    <div class="step-num">01</div>
+                    <div class="step-content">
+                        <h3>1. Inteligência e Proteção (Blindagem INPI)</h3>
+                        <p>Antes de investir um real em aquisição, protegemos o ativo. Protocolamos todas as marcas e variações no INPI e garantimos 100% dos domínios web, impedindo que a concorrência se apropriasse da demanda gerada.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="step-item">
-                <div class="step-num">04</div>
-                <div class="step-content">
-                    <h3>Permutas de Mídia OOH (Engenharia Financeira)</h3>
-                    <p>Negociação de parcerias com donos de outdoors/painéis de LED, trocando os serviços com capacidade ociosa da empresa por visibilidade massiva nas ruas a custo zero de caixa.</p>
+                <div class="step-item">
+                    <div class="step-num">02</div>
+                    <div class="step-content">
+                        <h3>2. Modelagem Preditiva e Assinaturas</h3>
+                        <p>Simulamos a margem de lucro exata da hora clínica/serviço para criar <strong>Clubes de Assinatura</strong>. Transformamos pacientes avulsos em mensalistas, garantindo que o custo fixo da clínica estivesse pago no 1º dia de cada mês.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="step-item">
-                <div class="step-num">05</div>
-                <div class="step-content">
-                    <h3>Precificação Preditiva (Assinaturas)</h3>
-                    <p>Simulação matemática do custo exato de hora/insumo para viabilizar Clubes de Recorrência Mensal com margem líquida blindada, garantindo previsibilidade no fluxo de caixa no dia 1º de cada mês.</p>
+                <div class="step-item">
+                    <div class="step-num">03</div>
+                    <div class="step-content">
+                        <h3>3. Arquitetura Jurídica Férrea</h3>
+                        <p>A escala exige segurança legal. Criamos minutas de credenciamento rigorosas, regulando o comissionamento de profissionais parceiros para garantir que os clientes não sejam "desviados" para concorrência.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="step-item">
-                <div class="step-num">06</div>
-                <div class="step-content">
-                    <h3>Arquitetura Jurídica Férrea</h3>
-                    <p>Construção de minutas complexas de associação, termos de adesão do paciente/cliente e contratos blindados para rede parceira.</p>
+                <div class="step-item">
+                    <div class="step-num">04</div>
+                    <div class="step-content">
+                        <h3>4. Branding Sensorial (O Som da Marca)</h3>
+                        <p>Para elevar a percepção de valor, desenhamos a identidade visual e criamos um <em>Sound Branding</em>. Quando o cliente finaliza o atendimento, um som exclusivo marca a memória afetiva, ativando gatilhos de premiumização.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="step-item">
-                <div class="step-num">07</div>
-                <div class="step-content">
-                    <h3>Escalabilidade B2B (White Label)</h3>
-                    <p>Modelagem de negócios corporativos, permitindo que grandes associações e corporações adquirissem lotes fechados de serviços de forma padronizada.</p>
+                <div class="step-item">
+                    <div class="step-num">05</div>
+                    <div class="step-content">
+                        <h3>5. Redução Drástica de CAC (Uso de IA e Permutas)</h3>
+                        <p>Em vez de gastar fortunas com produtoras e outdoors, fizemos o <em>Growth Hacking</em>. Produzimos comerciais belíssimos utilizando Inteligência Artificial de última geração, e negociamos os serviços ociosos do cliente em troca de veiculação em Painéis de LED (Custo zero de mídia OOH).</p>
+                    </div>
                 </div>
-            </div>
-            <div class="step-item">
-                <div class="step-num">08</div>
-                <div class="step-content">
-                    <h3>Governança de Conselho (Tração)</h3>
-                    <p>Implantação de reuniões semanais exclusivas para leitura de KPIs, extinguindo a gestão baseada no "achismo" e implementando cadência de metas.</p>
+                <div class="step-item">
+                    <div class="step-num">06</div>
+                    <div class="step-content">
+                        <h3>6. Aquisição B2B (Corporativo White Label)</h3>
+                        <p>Destravamos a venda em atacado: criamos formatos onde grandes associações e corporações regionais pudessem comprar lotes fechados do serviço para oferecer como benefício aos seus associados.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">07</div>
+                    <div class="step-content">
+                        <h3>7. Governança e Tração (Conselho de Guerra)</h3>
+                        <p>Instituímos a reunião semanal de 45 minutos. Chega de "achismo". Toda semana a diretoria se encontra com os consultores da ViDI para analisar a matriz de KPIs: Leads, Agendamentos, Fechamentos e Churn.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div style="background: rgba(0, 136, 255, 0.05); border: 1px solid rgba(0, 136, 255, 0.3); padding: 3rem; border-radius: 20px; text-align: center; margin-top: 5rem;">
-            <h3 style="font-family: 'Outfit'; font-size: 2rem; color: #fff; margin-bottom: 1rem;">O Resultado da Execução</h3>
-            <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">A redução crítica do Custo de Aquisição de Clientes (CAC) unida à implementação de um modelo de caixa recorrente mudou o patamar da operação. A diretoria deixou as urgências diárias da recepção para operar de forma estratégica através de painéis analíticos.</p>
+        <!-- Parte 3: Resultados -->
+        <div class="chapter">
+            <div class="chapter-header">
+                <span>Parte III</span>
+                <h2>O Impacto do Modelo ViDI</h2>
+            </div>
+            <div class="result-box">
+                <h3>O Fim do Apagar Incêndios</h3>
+                <p>O resultado da engenharia reversa e do uso das tecnologias disruptivas foi um <strong>Caixa Previsível</strong>. Ao transformar serviços avulsos em produtos de assinatura e cortar o CAC via permutas e IA, a diretoria pôde, finalmente, focar em relacionamento institucional em vez de supervisionar a recepção.</p>
+            </div>
         </div>
     </div>
 </body>

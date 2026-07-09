@@ -3,42 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta Operacional - ViDI</title>
+    <title>Proposta - ViDI</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900&family=Inter:wght@300;400;500;600&display=swap');
+        
         :root {
-            --bg-color: #080C16;
-            --surface-color: rgba(255, 255, 255, 0.03);
-            --surface-hover: rgba(255, 255, 255, 0.06);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --accent-primary: #00E88F;
+            --bg-color: #05070A;
+            --surface-color: #0D1117;
+            --surface-alt: #111820;
+            --border-color: rgba(197,160,89, 0.15);
+            --accent-primary: #C5A059;
+            --accent-light: #E2C882;
             --text-primary: #FFFFFF;
-            --text-secondary: #9BA1B0;
+            --text-secondary: rgba(255, 255, 255, 0.7);
         }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; margin: 0; padding: 0; }
-        header { padding: 4rem 10%; background: linear-gradient(to bottom, rgba(0, 232, 143, 0.05) 0%, transparent 100%); border-bottom: 1px solid var(--border-color); }
-        .badge { display: inline-block; padding: 0.5rem 1rem; background: rgba(0, 232, 143, 0.1); color: var(--accent-primary); border-radius: 50px; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; border: 1px solid rgba(0, 232, 143, 0.2); }
-        h1 { font-family: 'Outfit', sans-serif; font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -2px; }
-        .meta { color: var(--text-secondary); display: flex; gap: 2rem; font-size: 1rem; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 4rem 2rem; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; margin: 0; padding: 0; background-image: linear-gradient(rgba(197,160,89,.02) 1px, transparent 1px), linear-gradient(90deg, rgba(197,160,89,.02) 1px, transparent 1px); background-size: 40px 40px; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        header { padding: 4rem 10%; background: linear-gradient(to bottom, rgba(197,160,89, 0.08) 0%, transparent 100%); border-bottom: 1px solid var(--border-color); text-align: center; }
+        .logo { max-height: 50px; margin-bottom: 2rem; }
+        .badge { display: inline-block; padding: 0.5rem 1rem; background: rgba(197,160,89, 0.1); color: var(--accent-light); border-radius: 50px; font-size: 0.85rem; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; border: 1px solid rgba(197,160,89, 0.3); }
+        h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 1.5rem; color: var(--accent-light); }
+        .meta { color: var(--text-secondary); display: flex; gap: 2rem; font-size: 1rem; justify-content: center; }
+        .container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
         section { margin-bottom: 5rem; }
-        .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-        .section-number { font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--accent-primary); font-weight: 800; }
-        h2 { font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 600; letter-spacing: -1px; }
+        .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; }
+        .section-number { font-size: 2rem; color: var(--accent-primary); font-style: italic; }
+        h2 { font-size: 2.2rem; margin: 0; color: #fff; }
         p { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 1.5rem; }
-        .task-list { display: grid; gap: 1rem; margin-top: 1rem; }
-        .task-item { background: var(--surface-color); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px; display: flex; flex-direction: column; gap: 0.5rem; }
-        .task-item h4 { font-family: 'Outfit', sans-serif; font-size: 1.2rem; color: #fff; margin: 0; }
-        .task-item p { margin: 0; font-size: 1rem; }
-        .task-item .deliverable { color: var(--accent-primary); font-size: 0.9rem; font-weight: 600; margin-top: 0.5rem; }
-        .nav-back { position: fixed; top: 2rem; left: 2rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; z-index: 100; }
-        .nav-back:hover { color: var(--text-primary); }
+        .task-list { display: grid; gap: 1.5rem; margin-top: 1rem; }
+        .task-item { background: var(--surface-color); border: 1px solid var(--border-color); padding: 2rem; border-radius: 12px; transition: transform 0.3s; }
+        .task-item:hover { transform: translateX(5px); border-color: rgba(197,160,89, 0.4); }
+        .task-item h4 { font-size: 1.4rem; color: var(--accent-light); margin: 0 0 0.8rem 0; }
+        .task-item p { margin: 0; font-size: 1.05rem; }
+        .deliverable { display: block; color: var(--accent-primary); font-size: 0.9rem; font-weight: 600; margin-top: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-back { position: fixed; top: 2rem; left: 2rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; z-index: 100; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;}
+        .nav-back:hover { color: var(--accent-primary); }
     </style>
 </head>
 <body>
     <a href="index.html" class="nav-back">← Voltar ao Portal</a>
     <header>
-        <div class="badge">Consultoria Estratégica</div>
+        <img src="vidi_logo.png" alt="ViDI Logo" class="logo">
+        <br>
+        <div class="badge">Consultoria Estratégica & Execução</div>
         <h1>Proposta Operacional<br>Nagel & Loi</h1>
         <div class="meta">
             <span><strong>Stakeholders:</strong> Karolina, Karla, Tayná</span>
@@ -50,63 +57,53 @@
             <div class="section-header">
                 <span class="section-number">M</span><h2>Mapeamento e Diagnóstico</h2>
             </div>
-            <p>O cenário atual revela um choque estratégico de portfólio. A Nagel (Podologia) sustenta o caixa há 30 anos, enquanto a Loi (Estética High-Ticket) patina na aquisição, dependendo criticamente de indicações orgânicas. Para garantir sustentabilidade na Asa Sul, o Target mínimo de faturamento precisa saltar para <strong>R$ 150.000</strong>.</p>
+            <p>O cenário atual revela um choque estratégico de portfólio. A Nagel (Podologia) sustenta o caixa há 30 anos, enquanto a Loi (Estética High-Ticket) patina na aquisição, dependendo criticamente de indicações orgânicas. Para garantir sustentabilidade imobiliária no prestígio da Asa Sul, o Target mínimo de faturamento precisa atingir a estabilidade de <strong>R$ 150.000 mensais</strong>.</p>
         </section>
 
         <section>
             <div class="section-header">
-                <span class="section-number">A</span><h2>Arquitetura do Plano (Operacional)</h2>
+                <span class="section-number">A</span><h2>Arquitetura Operacional</h2>
             </div>
-            <h3 style="color: white; font-family: 'Outfit'; margin: 2rem 0 1rem;">Fase 1: Fundações e Blindagem</h3>
+            <p>Não prestamos apenas consultoria teórica. Executaremos as seguintes táticas junto à equipe:</p>
+            
+            <h3 style="color: var(--accent-light); margin: 3rem 0 1.5rem;">Fase 1: Fundações e Blindagem Jurídica</h3>
             <div class="task-list">
                 <div class="task-item">
-                    <h4>1. Auditoria e Separação de Custos</h4>
-                    <p>Mapeamento detalhado dos custos imobiliários e rateio preciso por metro quadrado entre Estética e Podologia. Criação de DREs independentes.</p>
-                    <span class="deliverable">Entregável: Planilha DRE Projetada e Histórica.</span>
+                    <h4>Auditoria e Rateio Imobiliário</h4>
+                    <p>Mapeamento dos custos físicos e rateio exato por metro quadrado entre Estética e Podologia. Configuração de Centros de Custo (DREs) separados para clareza gerencial.</p>
+                    <span class="deliverable">Entregável: Planilha DRE Projetada.</span>
                 </div>
                 <div class="task-item">
-                    <h4>2. Arquitetura Jurídica e Proteção</h4>
-                    <p>Elaboração de minutas de Parceria/Credenciamento para os médicos parceiros (Oftalmo/Nutricionista) e registro de marcas no INPI.</p>
-                    <span class="deliverable">Entregável: Minutas de Contratos e Relatório INPI.</span>
-                </div>
-            </div>
-
-            <h3 style="color: white; font-family: 'Outfit'; margin: 2rem 0 1rem;">Fase 2: Modelagem e Inteligência</h3>
-            <div class="task-list">
-                <div class="task-item">
-                    <h4>3. Pesquisa de Persona e Concorrência</h4>
-                    <p>Levantamento ativo do público-alvo (hábitos, locais) e benchmarking de precificação das clínicas de Alto Padrão.</p>
-                    <span class="deliverable">Entregável: Dossiê de Inteligência de Mercado.</span>
-                </div>
-                <div class="task-item">
-                    <h4>4. Precificação e Criação de Assinaturas</h4>
-                    <p>Estruturação da escada de valor: Criação de planos de recorrência ("Clube de Prevenção Estética") para subsidiar custos fixos.</p>
-                    <span class="deliverable">Entregável: Tabela de Precificação Estratégica.</span>
+                    <h4>Engenharia Societária e Proteção (INPI)</h4>
+                    <p>Elaboração de minutas de credenciamento rígidas para blindar a clínica em relação aos médicos parceiros (Oftalmo/Nutricionista) e registro das duas marcas no INPI.</p>
+                    <span class="deliverable">Entregável: Minutas de Contratos e Protocolos INPI.</span>
                 </div>
             </div>
 
-            <h3 style="color: white; font-family: 'Outfit'; margin: 2rem 0 1rem;">Fase 3: Tração (Rumo aos 150k)</h3>
+            <h3 style="color: var(--accent-light); margin: 3rem 0 1.5rem;">Fase 2: Tração, Recorrência e B2B</h3>
             <div class="task-list">
                 <div class="task-item">
-                    <h4>5. Pipeline e Script de Vendas</h4>
-                    <p>Implantação de um funil de vendas (CRM) gerido pela Tayná e scripts persuasivos de Cross-sell na recepção.</p>
-                    <span class="deliverable">Entregável: Playbook de Vendas e Scripts.</span>
+                    <h4>Assinaturas e Prevenção</h4>
+                    <p>Estruturação técnica e matemática de um "Clube de Prevenção Estética", precificado cirurgicamente para pagar os custos fixos garantindo fluxo de caixa no dia 1º.</p>
+                    <span class="deliverable">Entregável: Modelagem de Preços.</span>
                 </div>
                 <div class="task-item">
-                    <h4>6. Captação B2B e Networking</h4>
-                    <p>Estruturação institucional da Karolina para ingresso em grupos fechados (ex: BNI) e prospecção corporativa.</p>
-                    <span class="deliverable">Entregável: Plano de Expansão B2B.</span>
+                    <h4>Inteligência Comercial (Networking)</h4>
+                    <p>Estruturação de CRM (Funil de Vendas) gerido pela Tayná com roteiros de <em>Cross-sell</em> para a recepção. Mapeamento de grupos executivos (ex: BNI) para expansão corporativa de alto impacto pela Dra. Karolina.</p>
+                    <span class="deliverable">Entregável: Playbook de Receita B2B/B2C.</span>
                 </div>
             </div>
         </section>
 
         <section>
             <div class="section-header">
-                <span class="section-number">P</span><h2>Precificação (M.A.P.C.A)</h2>
+                <span class="section-number">P</span><h2>Precificação e Governança</h2>
             </div>
-            <div style="background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 16px; border: 1px solid var(--accent-primary); text-align: center;">
-                <h3 style="font-size: 3rem; color: var(--accent-primary); font-family: 'Outfit'; margin: 0;">R$ 13.000,00</h3>
-                <p style="margin-top: 1rem;">Investimento Único para estruturação das Fases 1 a 3 (Diagnóstico, Jurídico, Precificação, Scripts e B2B).</p>
+            <div style="background: var(--surface-alt); padding: 3rem; border-radius: 16px; border: 1px solid var(--accent-primary); text-align: center;">
+                <h3 style="font-size: 3rem; color: var(--accent-light); margin: 0;">R$ 13.000,00</h3>
+                <p style="margin-top: 1rem; color: var(--text-secondary);">Honorário único de Estruturação das Fases 1 e 2.<br>Envolve Diagnóstico, Jurídico, Precificação de Assinaturas e Funil.</p>
+                <br>
+                <p style="font-size: 0.95rem; color: var(--accent-primary);"><em>Adicional Opcional: Conselho Mensal Diretivo (R$ 3.000/mês).</em></p>
             </div>
         </section>
     </div>
