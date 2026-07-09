@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial - ViDI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --bg-color: #080C16;
+            --surface-color: rgba(255, 255, 255, 0.03);
+            --surface-hover: rgba(255, 255, 255, 0.06);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-primary: #00E88F;
+            --text-primary: #FFFFFF;
+            --text-secondary: #9BA1B0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 6rem 10%;
+            background: linear-gradient(to bottom, rgba(0, 232, 143, 0.05) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 232, 143, 0.1);
+            color: var(--accent-primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(0, 232, 143, 0.2);
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .meta {
+            color: var(--text-secondary);
+            display: flex;
+            gap: 2rem;
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+            animation: fadeIn 1s ease-out both;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+            font-weight: 800;
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            background: var(--surface-hover);
+            transform: translateY(-5px);
+            border-color: rgba(0, 232, 143, 0.3);
+        }
+
+        .card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .investment-box {
+            background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.05) 100%);
+            border: 1px solid var(--accent-primary);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+            margin: 1.5rem 0;
+            line-height: 1;
+        }
+
+        .price span {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-back {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            z-index: 100;
+        }
+        .nav-back:hover { color: var(--text-primary); }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="nav-back">← Voltar ao Portal</a>
+
+    <header>
+        <div class="badge">Consultoria Estratégica</div>
+        <h1>Proposta de<br>Reestruturação GTM</h1>
+        <div class="meta">
+            <span><strong>Cliente:</strong> Náguel & Loi</span>
+            <span><strong>Consultor:</strong> Luiz Portal / ViDI</span>
+            <span><strong>Data:</strong> Julho 2026</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <section style="animation-delay: 0.1s">
+            <div class="section-header">
+                <span class="section-number">M</span>
+                <h2>Mapeamento e Diagnóstico</h2>
+            </div>
+            <p>O cenário atual revela um choque estratégico de portfólio. De um lado, uma base estabilizada de 30 anos (Náguel); do outro, uma frente de Alto Valor Agregado (Loi) patinando na aquisição e operando via indicação passiva.</p>
+            <p>O ponto de equilíbrio relatado é de R$ 120.000, mas estrategicamente projetamos o negócio para um Target mínimo de <strong>R$ 150.000</strong>, considerando o alto custo operacional imobiliário de manter a operação na Asa Sul, bem como adequações tributárias futuras.</p>
+        </section>
+
+        <section style="animation-delay: 0.2s">
+            <div class="section-header">
+                <span class="section-number">A</span>
+                <h2>Arquitetura do Plano</h2>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>1. Inteligência de Mercado</h3>
+                    <p>Mapeamento do perfil de cliente raiz, busca ativa pelo ICP na Asa Sul e benchmarking de precificação da concorrência direta.</p>
+                </div>
+                <div class="card">
+                    <h3>2. Modelagem & Governança</h3>
+                    <p>Separação rigorosa do centro de custos das duas operações e adaptação financeira à nova carga tributária.</p>
+                </div>
+                <div class="card">
+                    <h3>3. Funil Metrificado</h3>
+                    <p>Criação da régua de relacionamento, metas de captação e preparo para entrada em redes High-Ticket (ex: BNI).</p>
+                </div>
+                <div class="card">
+                    <h3>4. Tração & Conselho</h3>
+                    <p>Implantação de reuniões semanais estritas de Conselho para monitoramento das métricas e cadência de execução.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="animation-delay: 0.3s">
+            <div class="section-header">
+                <span class="section-number">P</span>
+                <h2>Precificação</h2>
+            </div>
+            <div class="investment-box">
+                <div class="badge" style="margin: 0; background: transparent; border-color: var(--accent-primary)">Investimento Único</div>
+                <div class="price">R$ 13.000<span>,00</span></div>
+                <p>Engloba Diagnóstico, Pesquisa, Modelagem Financeira, Plano Metrificado e Estruturação de KPIs.</p>
+                <br>
+                <p style="font-size: 0.9rem; margin: 0;"><em>+ R$ 3.000/mês para o Conselho Executivo (Opcional após entrega)</em></p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
